@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -49,7 +50,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CalculationApp(modifier: Modifier = Modifier) {
-    val displayValue by remember { mutableStateOf("0") }
+    var displayValue by remember { mutableStateOf("0") }
 
     Column(modifier = modifier) {
         CalculationField(
@@ -62,17 +63,17 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "(",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "(" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = ")",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = ")" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "%",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue += "%" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -84,88 +85,88 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "7",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "7" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "8",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "8" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "9",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "9" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "÷",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue += "÷" },
                     modifier = Modifier.weight(1f)
                 )
             }
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "4",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "4" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "5",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "5" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "6",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "6" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "×",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue += "×" },
                     modifier = Modifier.weight(1f)
                 )
             }
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "1",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "1" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "2",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "2" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "3",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "3" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "-",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue += "-" },
                     modifier = Modifier.weight(1f)
                 )
             }
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "0",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "0" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = ".",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue += "." },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "=",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "=" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "+",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue += "+" },
                     modifier = Modifier.weight(1f)
                 )
             }
