@@ -85,17 +85,34 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "7",
-                    onClick = { displayValue = "7" },
+                    onClick = { 
+                        if (displayValue == "0") {
+                            displayValue = "7"
+                        } else {
+                            displayValue += "7"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "8",
-                    onClick = { displayValue = "8" },
+                    onClick = {
+                        if (displayValue == "0") {
+                            displayValue = "8"
+                        } else {
+                            displayValue += "8"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "9",
-                    onClick = { displayValue = "9" },
+                    onClick = {
+                         if (displayValue == "0") {
+                            displayValue = "9"
+                        } else {
+                            displayValue += "9"
+                        }                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -107,17 +124,35 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "4",
-                    onClick = { displayValue = "4" },
+                    onClick = {
+                        if (displayValue == "0") {
+                            displayValue = "4"
+                        } else {
+                            displayValue += "4"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "5",
-                    onClick = { displayValue = "5" },
+                    onClick = {
+                        if ( displayValue == "0") {
+                            displayValue = "5"
+                        } else {
+                            displayValue += "5"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "6",
-                    onClick = { displayValue = "6" },
+                    onClick = {
+                        if ( displayValue == "0") {
+                            displayValue = "6"
+                        } else {
+                            displayValue += "6"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -129,17 +164,38 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "1",
-                    onClick = { displayValue = "1" },
+                    onClick = {
+                        if (displayValue == "0") {
+                            displayValue = "1"
+                        }
+                        else {
+                            displayValue += "1"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "2",
-                    onClick = { displayValue = "2" },
+                    onClick = {
+                        if (displayValue == "0") {
+                            displayValue = "2"
+                        }
+                        else {
+                            displayValue += "2"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
                     label = "3",
-                    onClick = { displayValue = "3" },
+                    onClick = {
+                        if (displayValue == "0") {
+                            displayValue = "3"
+                        }
+                        else {
+                            displayValue += "3"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -151,7 +207,13 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "0",
-                    onClick = { displayValue = "0" },
+                    onClick = {
+                        if (displayValue == "0") {
+                            displayValue = "0"
+                        } else {
+                            displayValue += "0"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
