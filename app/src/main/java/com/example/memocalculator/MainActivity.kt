@@ -73,7 +73,13 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "%",
-                    onClick = { displayValue += "%" },
+                    onClick = {
+                        if (displayValue.last() != '%') {
+                            displayValue += "%"
+                        } else {
+                            displayValue = displayValue.dropLast(1) + "%"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -117,7 +123,13 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "÷",
-                    onClick = { displayValue += "÷" },
+                    onClick = {
+                        if (displayValue.last() != '÷') {
+                            displayValue += "÷"
+                        } else {
+                            displayValue = displayValue.dropLast(1) + "÷"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -157,7 +169,13 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "×",
-                    onClick = { displayValue += "×" },
+                    onClick = {
+                        if (displayValue.last() != '×') {
+                            displayValue += "×"
+                        } else {
+                            displayValue = displayValue.dropLast(1) + "×"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -200,7 +218,13 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "-",
-                    onClick = { displayValue += "-" },
+                    onClick = {
+                        if (displayValue.last() != '-') {
+                            displayValue += "-"
+                        } else {
+                            displayValue = displayValue.dropLast(1) + "-"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -228,7 +252,13 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "+",
-                    onClick = { displayValue += "+" },
+                    onClick = {
+                        if (displayValue.last() != '+') {
+                            displayValue += "+"
+                        } else {
+                            displayValue = displayValue.dropLast(1) + "+"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
