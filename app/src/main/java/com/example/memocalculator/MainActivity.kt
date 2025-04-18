@@ -74,7 +74,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 CalculationButton(
                     label = "%",
                     onClick = {
-                        if (displayValue.last() != '%') {
+                        if (displayValue.last() != '+' && displayValue.last() != '-' && displayValue.last() != '×' && displayValue.last() != '÷') {
                             displayValue += "%"
                         } else {
                             displayValue = displayValue.dropLast(1) + "%"
