@@ -63,7 +63,13 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "(",
-                    onClick = { displayValue = "(" },
+                    onClick = {
+                        if (displayValue == "0") {
+                            displayValue = "()"
+                        } else {
+                            displayValue += "()"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -91,7 +97,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
                     label = "7",
-                    onClick = { 
+                    onClick = {
                         if (displayValue == "0") {
                             displayValue = "7"
                         } else {
@@ -114,11 +120,12 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 CalculationButton(
                     label = "9",
                     onClick = {
-                         if (displayValue == "0") {
+                        if (displayValue == "0") {
                             displayValue = "9"
                         } else {
                             displayValue += "9"
-                        }                    },
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -148,7 +155,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 CalculationButton(
                     label = "5",
                     onClick = {
-                        if ( displayValue == "0") {
+                        if (displayValue == "0") {
                             displayValue = "5"
                         } else {
                             displayValue += "5"
@@ -159,7 +166,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 CalculationButton(
                     label = "6",
                     onClick = {
-                        if ( displayValue == "0") {
+                        if (displayValue == "0") {
                             displayValue = "6"
                         } else {
                             displayValue += "6"
@@ -185,8 +192,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "1"
-                        }
-                        else {
+                        } else {
                             displayValue += "1"
                         }
                     },
@@ -197,8 +203,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "2"
-                        }
-                        else {
+                        } else {
                             displayValue += "2"
                         }
                     },
@@ -209,8 +214,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "3"
-                        }
-                        else {
+                        } else {
                             displayValue += "3"
                         }
                     },
@@ -219,7 +223,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 CalculationButton(
                     label = "-",
                     onClick = {
-                        if (displayValue.last() != '-' && displayValue.last() != '+' ) {
+                        if (displayValue.last() != '-' && displayValue.last() != '+') {
                             displayValue += "-"
                         } else {
                             displayValue = displayValue.dropLast(1) + "-"
