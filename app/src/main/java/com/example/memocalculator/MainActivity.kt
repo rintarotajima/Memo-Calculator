@@ -90,7 +90,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "AC",
-                    onClick = { /*TODO*/ },
+                    onClick = { displayValue = "0" },
                     modifier = Modifier.weight(1f)
                 )
             }
