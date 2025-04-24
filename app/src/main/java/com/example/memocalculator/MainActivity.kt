@@ -52,6 +52,16 @@ class MainActivity : ComponentActivity() {
 fun CalculationApp(modifier: Modifier = Modifier) {
     var displayValue by remember { mutableStateOf("0") }
 
+    fun additionNumbers(displayValue: String): String {
+        val numbers = displayValue.split("+")
+        var result = 0
+        for (number in numbers) {
+            result += number.toInt()
+        }
+        val resultValue = result.toString()
+        return resultValue
+    }
+
     Column(modifier = modifier) {
         CalculationField(
             value = displayValue,
@@ -251,7 +261,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "=",
-                    onClick = { displayValue = "=" },
+                    onClick = { displayValue = additionNumbers(displayValue) },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
