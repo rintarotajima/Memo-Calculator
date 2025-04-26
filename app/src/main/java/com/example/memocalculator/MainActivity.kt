@@ -52,15 +52,71 @@ class MainActivity : ComponentActivity() {
 fun CalculationApp(modifier: Modifier = Modifier) {
     var displayValue by remember { mutableStateOf("0") }
 
-    fun additionNumbers(displayValue: String): String {
-        val numbers = displayValue.split("+")
-        var result = 0
-        for (number in numbers) {
-            result += number.toInt()
+    fun calculate(expression: String): String {
+        try {
+            val tokens = mutableListOf<String>()
+            var currentNumber = StringBuilder()
+            for (char in expression) {
+                if (char.isDigit() || char == '.') {
+                    currentNumber.append(char)
+                } else if (char in listOf('+', '-', '×', '÷', '%')) {
+                    if (currentNumber.isNotEmpty()) {
+                        tokens.add(currentNumber.toString())
+                        currentNumber = StringBuilder()
+                    }
+                    tokens.add(char.toString())
+                }
+            }
+            if (currentNumber.isNotEmpty()) {
+                tokens.add(currentNumber.toString())
+            }
+
+            val highPriorityOps = listOf("×", "÷", "%")
+            val intermediateTokens = mutableListOf<String>()
+            var i = 0
+            while (i < tokens.size) {
+                if (i + 1 < tokens.size && tokens[i + 1] in highPriorityOps) {
+                    if (i + 2 >= tokens.size) return "Error"
+                    val left = tokens[i].toDouble()
+                    val operator = tokens[i + 1]
+                    val right = tokens[i + 2].toDouble()
+                    val result = when (operator) {
+                        "×" -> left * right
+                        "÷" -> left / right
+                        "%" -> left % right
+                        else -> 0.0
+                    }
+                    intermediateTokens.add(result.toString())
+                    i += 3
+                } else {
+                    intermediateTokens.add(tokens[i])
+                    i++
+                }
+            }
+
+            var result = intermediateTokens[0].toDouble()
+            i = 1
+            while (i < intermediateTokens.size) {
+                val op = intermediateTokens[i]
+                val right = intermediateTokens[i + 1].toDouble()
+                result = when (op) {
+                    "+" -> result + right
+                    "-" -> result - right
+                    else -> result
+                }
+                i += 2
+            }
+
+            return if (result % 1.0 == 0.0) {
+                result.toInt().toString()
+            } else {
+                result.toString()
+            }
+        } catch (e: Exception) {
+            return "Error"
         }
-        val resultValue = result.toString()
-        return resultValue
     }
+
 
     Column(modifier = modifier) {
         CalculationField(
@@ -261,7 +317,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 )
                 CalculationButton(
                     label = "=",
-                    onClick = { displayValue = additionNumbers(displayValue) },
+                    onClick = { displayValue = calculate(displayValue) },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
