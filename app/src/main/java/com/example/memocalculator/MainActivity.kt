@@ -70,48 +70,60 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             if (currentNumber.isNotEmpty()) {
                 tokens.add(currentNumber.toString())
             }
-
             val highPriorityOps = listOf("×", "÷", "%")
             val intermediateTokens = mutableListOf<String>()
             var i = 0
+
+            if (tokens.isNotEmpty() && tokens[0] !in highPriorityOps) {
+                intermediateTokens.add(tokens[0])
+                i = 1
+            }
+
             while (i < tokens.size) {
-                if (i + 1 < tokens.size && tokens[i + 1] in highPriorityOps) {
-                    if (i + 2 >= tokens.size) return "Error"
-                    val left = tokens[i].toDouble()
-                    val operator = tokens[i + 1]
-                    val right = tokens[i + 2].toDouble()
+                val operator = tokens[i]
+                if (i + 1 >= tokens.size) return "Error"
+                val right = tokens[i + 1]
+                if (operator in highPriorityOps) {
+                    if (intermediateTokens.isEmpty()) return "Error"
+                    val left = intermediateTokens.last().toDouble()
+                    val rightValue = right.toDouble()
                     val result = when (operator) {
-                        "×" -> left * right
-                        "÷" -> left / right
-                        "%" -> left % right
+                        "×" -> left * rightValue
+                        "÷" -> left / rightValue
+                        "%" -> left % rightValue
                         else -> 0.0
                     }
+                    intermediateTokens.removeAt(intermediateTokens.size - 1)
                     intermediateTokens.add(result.toString())
-                    i += 3
                 } else {
-                    intermediateTokens.add(tokens[i])
-                    i++
+                    intermediateTokens.add(operator)
+                    intermediateTokens.add(right)
                 }
+                i += 2
             }
 
             var result = intermediateTokens[0].toDouble()
             i = 1
             while (i < intermediateTokens.size) {
                 val op = intermediateTokens[i]
+                if (i + 1 >= intermediateTokens.size) return "Error"
                 val right = intermediateTokens[i + 1].toDouble()
                 result = when (op) {
                     "+" -> result + right
                     "-" -> result - right
-                    else -> result
+                    else -> return "Error" // 不正な演算子
                 }
                 i += 2
             }
 
+            // 結果を整形（整数なら小数点以下を削除）
             return if (result % 1.0 == 0.0) {
                 result.toInt().toString()
             } else {
                 result.toString()
             }
+
+
         } catch (e: Exception) {
             return "Error"
         }
