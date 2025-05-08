@@ -55,6 +55,7 @@ fun CalculationApp(modifier: Modifier = Modifier) {
 
     fun calculate(expression: String): String {
         try {
+
             val tokens = mutableListOf<String>()
             var currentNumber = StringBuilder()
             for (char in expression) {
@@ -71,15 +72,14 @@ fun CalculationApp(modifier: Modifier = Modifier) {
             if (currentNumber.isNotEmpty()) {
                 tokens.add(currentNumber.toString())
             }
+
             val highPriorityOps = listOf("×", "÷", "%")
             val intermediateTokens = mutableListOf<String>()
             var i = 0
-
             if (tokens.isNotEmpty() && tokens[0] !in highPriorityOps) {
                 intermediateTokens.add(tokens[0])
                 i = 1
             }
-
             while (i < tokens.size) {
                 val operator = tokens[i]
                 if (i + 1 >= tokens.size) return "Error"
@@ -112,19 +112,16 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 result = when (op) {
                     "+" -> result + right
                     "-" -> result - right
-                    else -> return "Error" // 不正な演算子
+                    else -> return "Error"
                 }
                 i += 2
             }
 
-            // 結果を整形（整数なら小数点以下を削除）
             return if (result % 1.0 == 0.0) {
                 result.toInt().toString()
             } else {
                 result.toString()
             }
-
-
         } catch (e: Exception) {
             return "Error"
         }
