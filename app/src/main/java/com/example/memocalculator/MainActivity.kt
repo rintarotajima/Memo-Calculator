@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,7 +24,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -357,7 +358,7 @@ fun CalculationField(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.LightGray)
+            .background(MaterialTheme.colorScheme.background)
             .padding(2.dp),
         contentAlignment = Alignment.BottomEnd
     ) {
@@ -377,6 +378,12 @@ fun CalculationButton(
 ) {
     Button(
         onClick = onClick,
+        colors = ButtonColors(
+            MaterialTheme.colorScheme.primaryContainer,
+            MaterialTheme.colorScheme.primary,
+            MaterialTheme.colorScheme.onPrimary,
+            MaterialTheme.colorScheme.onSecondary
+        ),
         modifier = modifier
             .size(132.dp)
             .padding(4.dp)
