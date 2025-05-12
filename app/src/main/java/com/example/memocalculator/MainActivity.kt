@@ -138,19 +138,8 @@ fun CalculationApp(modifier: Modifier = Modifier) {
         ) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
-                    label = "(",
-                    onClick = {
-                        if (displayValue == "0") {
-                            displayValue = "()"
-                        } else {
-                            displayValue += "()"
-                        }
-                    },
-                    modifier = Modifier.weight(1f)
-                )
-                CalculationButton(
-                    label = ")",
-                    onClick = { displayValue = ")" },
+                    label = "AC",
+                    onClick = { displayValue = "0" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
@@ -165,8 +154,14 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "AC",
-                    onClick = { displayValue = "0" },
+                    label = "÷",
+                    onClick = {
+                        if (displayValue.last() != '÷' && displayValue.last() != '×' && displayValue.last() != '-' && displayValue.last() != '+') {
+                            displayValue += "÷"
+                        } else {
+                            displayValue = displayValue.dropLast(1) + "÷"
+                        }
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -205,12 +200,12 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "÷",
+                    label = "×",
                     onClick = {
-                        if (displayValue.last() != '÷' && displayValue.last() != '×' && displayValue.last() != '-' && displayValue.last() != '+') {
-                            displayValue += "÷"
+                        if (displayValue.last() != '×' && displayValue.last() != '÷' && displayValue.last() != '-' && displayValue.last() != '+') {
+                            displayValue += "×"
                         } else {
-                            displayValue = displayValue.dropLast(1) + "÷"
+                            displayValue = displayValue.dropLast(1) + "×"
                         }
                     },
                     modifier = Modifier.weight(1f)
@@ -251,12 +246,12 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "×",
+                    label = "-",
                     onClick = {
-                        if (displayValue.last() != '×' && displayValue.last() != '÷' && displayValue.last() != '-' && displayValue.last() != '+') {
-                            displayValue += "×"
+                        if (displayValue.last() != '-' && displayValue.last() != '+') {
+                            displayValue += "-"
                         } else {
-                            displayValue = displayValue.dropLast(1) + "×"
+                            displayValue = displayValue.dropLast(1) + "-"
                         }
                     },
                     modifier = Modifier.weight(1f)
@@ -297,12 +292,12 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "-",
+                    label = "+",
                     onClick = {
-                        if (displayValue.last() != '-' && displayValue.last() != '+') {
-                            displayValue += "-"
+                        if (displayValue.last() != '+' && displayValue.last() != '-' && displayValue.last() != '×' && displayValue.last() != '÷') {
+                            displayValue += "+"
                         } else {
-                            displayValue = displayValue.dropLast(1) + "-"
+                            displayValue = displayValue.dropLast(1) + "+"
                         }
                     },
                     modifier = Modifier.weight(1f)
@@ -328,17 +323,6 @@ fun CalculationApp(modifier: Modifier = Modifier) {
                 CalculationButton(
                     label = "=",
                     onClick = { displayValue = calculate(displayValue) },
-                    modifier = Modifier.weight(1f)
-                )
-                CalculationButton(
-                    label = "+",
-                    onClick = {
-                        if (displayValue.last() != '+' && displayValue.last() != '-' && displayValue.last() != '×' && displayValue.last() != '÷') {
-                            displayValue += "+"
-                        } else {
-                            displayValue = displayValue.dropLast(1) + "+"
-                        }
-                    },
                     modifier = Modifier.weight(1f)
                 )
             }
