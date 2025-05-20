@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -140,7 +141,7 @@ fun CalculatorScreen(
             }
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
-                    label = "7",
+                    label = stringResource(R.string.label7_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "7"
@@ -151,7 +152,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "8",
+                    label = stringResource(R.string.label8_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "8"
@@ -162,7 +163,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "9",
+                    label = stringResource(R.string.label9_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "9"
@@ -186,7 +187,7 @@ fun CalculatorScreen(
             }
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
-                    label = "4",
+                    label = stringResource(R.string.label4_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "4"
@@ -197,7 +198,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "5",
+                    label = stringResource(R.string.label5_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "5"
@@ -208,7 +209,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "6",
+                    label = stringResource(R.string.label6_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "6"
@@ -232,7 +233,7 @@ fun CalculatorScreen(
             }
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
-                    label = "1",
+                    label = stringResource(R.string.label1_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "1"
@@ -243,7 +244,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "2",
+                    label = stringResource(R.string.label2_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "2"
@@ -254,7 +255,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "3",
+                    label = stringResource(R.string.label3_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "3"
@@ -278,7 +279,7 @@ fun CalculatorScreen(
             }
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
-                    label = "0",
+                    label = stringResource(R.string.label0_button),
                     onClick = {
                         if (displayValue == "0") {
                             displayValue = "0"

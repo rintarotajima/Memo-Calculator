@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MemoCalculator</string>
+    <string name="label0_button">0</string>
+    <string name="label1_button">1</string>
+    <string name="label2_button">2</string>
+    <string name="label3_button">3</string>
+    <string name="label4_button">4</string>
+    <string name="label5_button">5</string>
+    <string name="label6_button">6</string>
+    <string name="label7_button">7</string>
+    <string name="label8_button">8</string>
+    <string name="label9_button">9</string>
 </resources>
