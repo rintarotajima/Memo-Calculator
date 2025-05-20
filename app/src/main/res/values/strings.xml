@@ -10,4 +10,11 @@
     <string name="label7_button">7</string>
     <string name="label8_button">8</string>
     <string name="label9_button">9</string>
+    <string name="label_all_clear_button">AC</string>
+    <string name="label_remainder_button">%</string>
+    <string name="label_division_button">÷</string>
+    <string name="label_multiplication_button">×</string>
+    <string name="label_subtraction_button">-</string>
+    <string name="label_addition_button">+</string>
+    <string name="label_decimal_point_button">.</string>
 </resources>

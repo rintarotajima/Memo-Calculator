@@ -112,12 +112,12 @@ fun CalculatorScreen(
         ) {
             Row(modifier = Modifier.fillMaxWidth()) {
                 CalculationButton(
-                    label = "AC",
+                    label = stringResource(R.string.label_all_clear_button),
                     onClick = { displayValue = "0" },
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "%",
+                    label = stringResource(R.string.label_remainder_button),
                     onClick = {
                         if (displayValue.last() != '+' && displayValue.last() != '-' && displayValue.last() != '×' && displayValue.last() != '÷') {
                             displayValue += "%"
@@ -128,7 +128,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "÷",
+                    label = stringResource(R.string.label_division_button),
                     onClick = {
                         if (displayValue.last() != '÷' && displayValue.last() != '×' && displayValue.last() != '-' && displayValue.last() != '+') {
                             displayValue += "÷"
@@ -174,7 +174,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "×",
+                    label = stringResource(R.string.label_multiplication_button),
                     onClick = {
                         if (displayValue.last() != '×' && displayValue.last() != '÷' && displayValue.last() != '-' && displayValue.last() != '+') {
                             displayValue += "×"
@@ -220,7 +220,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "-",
+                    label = stringResource(R.string.label_subtraction_button),
                     onClick = {
                         if (displayValue.last() != '-' && displayValue.last() != '+') {
                             displayValue += "-"
@@ -266,7 +266,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = "+",
+                    label = stringResource(R.string.label_addition_button),
                     onClick = {
                         if (displayValue.last() != '+' && displayValue.last() != '-' && displayValue.last() != '×' && displayValue.last() != '÷') {
                             displayValue += "+"
@@ -290,7 +290,7 @@ fun CalculatorScreen(
                     modifier = Modifier.weight(1f)
                 )
                 CalculationButton(
-                    label = ".",
+                    label = stringResource(R.string.label_decimal_point_button),
                     onClick = { displayValue += "." },
                     modifier = Modifier.weight(1f)
                 )
