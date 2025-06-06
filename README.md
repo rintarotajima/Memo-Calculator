@@ -4,7 +4,7 @@
 Jetpack Composeを用いたAndroidアプリ開発のアウトプット目的で作成しました！
 
 ## デモ
-
+<img src="images/demo.gif" width="200" height="444" alt="">
 
 ## 使用ライブラリ
 ViewModel
